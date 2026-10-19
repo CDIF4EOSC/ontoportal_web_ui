@@ -21,6 +21,8 @@ ENV RAILS_LOG_TO_STDOUT="1" \
     BUNDLE_WITHOUT="development test" \
     SECRET_KEY_BASE_DUMMY=1
 
+ENV UI_THEME="socioportal"
+
 COPY Gemfile* .
 RUN gem install bundler
 RUN bundle install
