@@ -50,5 +50,5 @@ aws ecr create-repository --repository-name $ECR_REPO --region $AWS_REGION
 
 aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
 
-docker buildx build --platform linux/amd64 -t $ECR_URI:$TAG --push .
+docker buildx build --platform linux/amd64 --build-arg RUBY_VERSION=$(cat .ruby-version) -t $ECR_URI:$TAG --push .
 ```
